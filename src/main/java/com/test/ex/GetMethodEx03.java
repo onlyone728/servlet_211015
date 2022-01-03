@@ -28,6 +28,6 @@ public class GetMethodEx03 extends HttpServlet {
 		// JSON(Javascript Object Notation)으로 response 구성하기
 		// {"user_id":"onlyone728", "name":"hana", "age":36}
 		out.print("{\"user_id\":\"" + userId + "\", \"name\":\"" + name + "\", \"age\":" + age + "}");
-		
+		out.print("test");
 	}
 }
