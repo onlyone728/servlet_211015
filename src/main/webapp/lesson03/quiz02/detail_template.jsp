@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+  
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>채널 안내</title>
+<title>Melong</title>
 <!-- bootstrap -->
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -23,18 +24,22 @@
 	crossorigin="anonymous"></script>
 	
 <style>
-header {height: 80px;}
-nav {height: 50px;}
-/* #content {height: 900px;} */
-footer {height: 80px;}
-</style>
+a:hover {text-decoration: none;}
+header {height: 100px;}
+header .search-bar {width: 450px;}
+.nav-link {color: #000;}
+.album-info {line-height:1;}
+.lyric {height: 100px;}
+footer {height: 100px;}
+</style>	
 </head>
 <body>
-	<div id="wrap">
-		<jsp:include page="header.jsp" />
-		<jsp:include page="menu.jsp" />
-		<jsp:include page="content2.jsp" />
-		<jsp:include page="footer.jsp" />
-	</div>
+
+<div class="container">
+	<jsp:include page="/lesson03/quiz02/header.jsp" />
+	<jsp:include page="/lesson03/quiz02/menu.jsp" />
+	<jsp:include page="/lesson03/quiz02/detail_content.jsp" />
+	<jsp:include page="/lesson03/quiz02/footer.jsp" />
+</div>
 </body>
 </html>

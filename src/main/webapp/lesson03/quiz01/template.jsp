@@ -25,15 +25,15 @@
 <style>
 header {height: 80px;}
 nav {height: 50px;}
-#content {height: 900px;}
+/* #content {height: 900px;} */
 footer {height: 80px;}
 </style>
 </head>
 <body>
-	<div id="wrap">
+	<div id="wrap" class="container">
 		<jsp:include page="header.jsp" />
 		<jsp:include page="menu.jsp" />
-		<jsp:include page="content1.jsp" />
+		<jsp:include page="contents.jsp" />
 		<jsp:include page="footer.jsp" />
 	</div>
 </body>
