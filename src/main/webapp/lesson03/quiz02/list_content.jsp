@@ -84,10 +84,10 @@ musicInfo.put("lyricist", "아이유");
 musicList.add(musicInfo);
 %>
 <section>
-<!-- 아티스트 정보 영역\ -->
+	<!-- 아티스트 정보 영역\ -->
 	<div class="border border-success d-flex p-3">
 		<div class="singer-photo mr-4">
-			<img src="<%= artistInfo.get("photo") %>" alt="아이유" width="150">
+			<img src="<%=artistInfo.get("photo")%>" alt="아이유" width="150">
 		</div>
 		<div class="singer-info">
 			<h3 class="mt-2"><%=artistInfo.get("name")%></h3>
@@ -97,9 +97,9 @@ musicList.add(musicInfo);
 			</div>
 		</div>
 	</div>
-	
+
 	<!-- 곡 목록 영역 -->
-	<div class="pt-3">
+	<div class="mt-4">
 		<h2>곡 목록</h2>
 		<table class="table text-center">
 			<thead>
@@ -115,7 +115,11 @@ musicList.add(musicInfo);
 				%>
 				<tr class="row">
 					<td class="col-2"><%=item.get("id")%></td>
-					<td class="col-5"><a href="/lesson03/quiz02/detail_template.jsp?id=<%=item.get("id")%>"><%=item.get("title")%></a></td>
+					<td class="col-5">
+						<a href="/lesson03/quiz02/detail_template.jsp?id=<%=item.get("id")%>">
+							<%=item.get("title")%>
+						</a>
+					</td>
 					<td class="col-5"><%=item.get("album")%></td>
 				</tr>
 				<%

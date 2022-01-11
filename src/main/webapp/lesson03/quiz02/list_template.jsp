@@ -32,7 +32,6 @@ footer {height: 100px;}
 </style>	
 </head>
 <body>
-
 <div class="container">
 	<jsp:include page="/lesson03/quiz02/header.jsp" />
 	<jsp:include page="/lesson03/quiz02/menu.jsp" />

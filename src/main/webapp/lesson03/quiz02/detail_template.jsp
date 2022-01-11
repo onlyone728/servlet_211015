@@ -28,7 +28,8 @@ a:hover {text-decoration: none;}
 header {height: 100px;}
 header .search-bar {width: 450px;}
 .nav-link {color: #000;}
-.album-info {line-height:1;}
+.music-info-text {font-size: 12px; color: #777;}
+/* .album-info {line-height:1;} */
 .lyric {height: 100px;}
 footer {height: 100px;}
 </style>	

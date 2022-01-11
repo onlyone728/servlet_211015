@@ -7,11 +7,13 @@
 		</h1>
 	</div>
 	<div class="seafch col-10 d-flex align-items-center">
-		<div class="search-bar d-flex input-group">
-			<input type="text" name="keyword" class="form-control">
-			<div class="input-group-append">
-				<button type="submit" class="btn btn-info">검색</button>
+		<form method="get" action="/lesson03/quiz02/detail_template.jsp">
+			<div class="search-bar d-flex input-group">
+				<input type="text" name="search" class="form-control">
+				<div class="input-group-append">
+					<input type="submit" class="btn btn-info" value="검색">
+				</div>
 			</div>
-		</div>
+		</form>
 	</div>
 </header>

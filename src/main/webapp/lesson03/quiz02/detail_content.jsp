@@ -84,52 +84,108 @@ musicList.add(musicInfo);
 %>
 
 <%
-int id = Integer.parseInt(request.getParameter("id"));
-Iterator<Map<String, Object>> iter = musicList.iterator();
+
+/* String keyword = request.getParameter("keyword");
+String id = request.getParameter("id"); */
+
+/* Iterator<Map<String, Object>> iter = musicList.iterator();
 while (iter.hasNext()){
 	Map<String, Object> item = iter.next();
-	if (id == (int)item.get("id")) {
+	 if (Integer.valueOf(id) == (int)item.get("id")) { */
+
+/* 풀이 */
+// 상세 곡 정보를 보여줄 target Map 세팅
+Map<String, Object> target = null;
+
+	 // 1. 목록에서 클릭해서 들어온 경우(a tag) - id 값
+	 if (request.getParameter("id") != null) {
+		 int id = Integer.parseInt(request.getParameter("id"));
+		 // out.print("######### id " + id);
+		 
+		 for (Map<String, Object> music : musicList) {
+			 if ((int)music.get("id") == id) {
+				 target = music;
+				 break;
+			 }
+		 }
+		// out.print(target);
+	 }
+	 
+	 // 2. search 검색어로 유입되는 경우
+	 if (request.getParameter("search") != null) {
+		 String search = request.getParameter("search");
+		 // out.print("##########search" + search);
+		 
+		for (Map<String, Object> music : musicList) {
+			String title = (String)music.get("title");
+			if (title.equals(search)) {
+				target = music;
+				break;
+			}
+		}
+	 }
 %>
 <section>
+	<%
+		if (target != null) {
+	%>
 	<!-- 곡 정보 -->
 	<div class="mt-3">
 		<h3>곡 정보</h3>
 		<div class="border border-success d-flex p-3">
 			<div class="album-img mr-4">
-				<img src="<%= item.get("thumbnail") %>" alt="앨범이미지" width="150"> 
+				<img src="<%= target.get("thumbnail") %>" alt="앨범이미지" width="180">
 			</div>
 			<div class="album-info w-100">
-				<h1 class="py-0 my-0 font-weight-lighter"><%= item.get("title") %></h1>
-				<div class="text-success font-weight-bold"><%= item.get("singer") %></div>
-				<table class="mt-2">
+				<h1 class="font-weight-lighter"><%= target.get("title") %></h1>
+				<div class="text-success font-weight-bold"><%= target.get("singer") %></div>
+				<!-- 풀이 -->
+				<div class="d-flex mt-3 music-info-text">
+					<div>
+						앨범<br>재생시간<br>작곡가<br>작사가
+					</div>
+					<div class="ml-4">
+						<%= target.get("album") %><br>
+						<%= (int)target.get("time") / 60 %>:<%= (int)target.get("time") % 60 %><br>
+						<%= target.get("composer") %><br>
+						<%= target.get("lyricist") %>
+					</div>
+				</div>
+
+				<%-- <table class="mt-2">
 					<tr> 
 						<td><small class="text-secondary">앨범</small></td>
-						<td><small class="text-secondary"><%= item.get("album") %></small></td>
+						<td><small class="text-secondary"><%= target.get("album") %></small></td>
 					</tr>
 					<tr>
 						<td><small class="text-secondary mr-2">재생시간</small></td>
-						<td><small class="text-secondary"><%= (int)item.get("time") / 60 %>:<%= (int)item.get("time") % 60 %></small></td>
+						<td><small class="text-secondary"><%= (int)target.get("time") / 60 %>:<%= (int)item.get("time") % 60 %></small></td>
 					</tr>
 					<tr>
 						<td><small class="text-secondary">작곡가</small></td>
-						<td><small class="text-secondary"><%= item.get("composer") %></small></td>
+						<td><small class="text-secondary"><%= target.get("composer") %></small></td>
 					</tr>
 					<tr>
 						<td><small class="text-secondary">작사가</small></td>
-						<td><small class="text-secondary"><%= item.get("lyricist") %></small></td>
+						<td><small class="text-secondary"><%= target.get("lyricist") %></small></td>
 					</tr>
-				</table>
+				</table> --%>
 			</div>
 		</div>
 	</div>
-	<%
-	}
-}
-	%>
+	
 	<!-- 가사 -->
-	<div class="mt-5">
+	<div class="mt-4">
 		<h3>가사</h3>
 		<hr>
 		<div class="lyric">가사 정보 없음</div>
 	</div>
+	<%
+		} // if 문 끝
+		else {
+	%>
+	<h1>찾는 정보 없음</h1>
+	<%
+		}
+	%>
 </section>
