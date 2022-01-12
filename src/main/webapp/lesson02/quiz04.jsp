@@ -17,11 +17,11 @@
 		<form action="/lesson02/quiz04_1.jsp" method="post">
 			<div class="d-flex mt-3">
 				<input type="text" name="num1" class="form-control col-2">
-				<select name="method" class="form-control col-1 mx-2">
-					<option>+</option>
-					<option>-</option>
-					<option value="X">*</option>
-					<option>/</option>
+				<select name="operator" class="form-control col-1 mx-2">
+					<option value="plus">+</option>
+					<option value="minus">-</option>
+					<option value="multiple">*</option>
+					<option value="divice">/</option>
 				</select>
 				<input type="text" name="num2" class="form-control col-2">
 				<input type="submit" class="btn btn-success ml-2" value="계산하기">

@@ -15,23 +15,46 @@
 <%
 	int num1 = Integer.valueOf(request.getParameter("num1"));
 	int num2 = Integer.valueOf(request.getParameter("num2"));
-	String method = request.getParameter("method");
+	String method = request.getParameter("operator");
 %>
 	<div class="container">
 		<h1 class="display-4">계산 결과</h1>
 		<%
-			double result;
-			if (method.equals("+")) {
+			double result = 0;
+			String printOperator = null;
+
+
+            switch(operator) {
+            case "plus":
+                result = num1 + num2;
+                printOperator = "+";
+                break;
+            case "minus":
+                result = num1 - num2;
+                printOperator = "-";
+                break;
+            case "multiple":
+                result = num1 * num2;
+                printOperator = "X";
+                break;
+            case "divide":
+                result = (double)num1 / num2;
+                printOperator = "/";
+                break;
+            }
+<!--
+			if (operator.equals("plus")) {
 				result = num1 + num2;
-			} else if (method.equals("-")) {
+			} else if (operator.equals("minus")) {
 				result = num1 - num2;
-			} else if (method.equals("X")) {
+			} else if (operator.equals("multiple")) {
 				result = num1 * num2;
 			} else {
-				result = num1 / num2;
+				result = (double)num1 / num2;
 			}
+-->
 		%>
-		<h1 class="display-2"><%= num1 %> <%= method %> <%= num2 %> = <span class="text-info"><%= result %></span></h1>
+		<h1 class="display-2"><%= num1 %> <%= printOperator %> <%= num2 %> = <span class="text-info"><%= result %></span></h1>
 	</div>
 </body>
 </html>
