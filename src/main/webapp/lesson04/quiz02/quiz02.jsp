@@ -35,6 +35,7 @@
 	ResultSet result = mysql.select(query);
 %>
 	<div class="container">
+		<h1 class="text-center my-5">즐겨찾기 목록</h1>
 		<table class="table text-center">
 			<thead>
 				<tr class="row">
@@ -49,8 +50,8 @@
 			%>
 				<tr class="row">
 					<td class="col-3"><%= result.getString("name") %></td>
-					<td class="col-6"><a href="<%= result.getString("url") %>"><%= result.getString("url") %></a></td>
-					<td class="col-3"><a href="/db/quiz02_delete?id=<%= result.getInt("id") %>" class="btn btn-warning">삭제하기</a></td>
+					<td class="col-6"><a href="<%= result.getString("url") %>" target="_blank"><%= result.getString("url") %></a></td>
+					<td class="col-3"><a href="/db/quiz02_delete?id=<%= result.getInt("id") %>" class="btn btn-danger">삭제</a></td>
 				</tr>
 			<%
 				}
@@ -58,7 +59,7 @@
 				<tr class="row">
 					<td class="col-3"></td>
 					<td class="col-6"></td>
-					<td class="col-3"><a href="/lesson04/quiz02/quiz02_1.jsp" class="btn btn-primary">추가하기</a></td>
+					<td class="col-3"><a href="/lesson04/quiz02/quiz02_1.jsp" class="btn btn-primary">추가</a></td>
 				</tr>
 			</tbody>
 		</table>

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>즐겨찾기 추가</title>
+<title>홍당무 마켓</title>
 <!-- bootstrap -->
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -21,19 +21,26 @@
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
 	integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
 	crossorigin="anonymous"></script>
+	
+<style>
+a:hover {text-decoration: none;}
+header { height: 100px; background-color: #FF7F50;}
+nav { height: 50px; background-color: #FF7F50;}
+nav ul li a {color: #fff; font-weight: bold;}
+/* .content {height:500px;} */
+.box {border: solid 2px #FF7F50;}
+.box:hover {background:linear-gradient(#FF7F50, yellow);}
+.box .descriptionImg {width:320px; height: 200px; overflow: hidden;}
+.description .name {color: #FF7F50;}
+footer {height:80px;}
+</style>	
 </head>
 <body>
 	<div class="container">
-		<h1>즐겨찾기 추가</h1>
-		<form method="post" action="/db/quiz02_insert">
-			<label class="w-100">사이트명 : 
-				<input type="text" name="name" class="form-control col-3">
-			</label>
-			<label class="w-100">사이트 주소 : 
-				<input type="text" name="url" class="form-control col-6">
-			</label>
-			<input type="submit" class="btn btn-success mt-3" value="추가">
-		</form>
+		<jsp:include page="/lesson04/quiz03/header.jsp" />
+		<jsp:include page="/lesson04/quiz03/menu.jsp" />
+		<jsp:include page="/lesson04/quiz03/list_content.jsp" />
+		<jsp:include page="/lesson04/quiz03/footer.jsp" />
 	</div>
 </body>
 </html>

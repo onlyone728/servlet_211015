@@ -14,7 +14,7 @@ import com.test.common.MysqlService;
 public class DatabaseQuiz02Insert extends HttpServlet {
 
 	@Override
-	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
 		// DB 연결
 		MysqlService mysql = MysqlService.getInstance();
@@ -37,7 +37,7 @@ public class DatabaseQuiz02Insert extends HttpServlet {
 		// DB 해제
 		mysql.disconnection();
 		
-		// 목록 
+		// 리다이렉트(목록페이지 quiz02.jsp)
 		response.sendRedirect("/lesson04/quiz02/quiz02.jsp");
 	}
 }
